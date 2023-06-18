@@ -241,8 +241,10 @@ func handlePlayerGetTokenScRspPacket(data []byte, packetId uint16, objectJson in
 		closeHandle()
 	}
 	seed := dMsg.GetFieldByName("secret_key_seed").(uint64)
-	sessionKey = createXorPad(seed)
-
+	if seed != 0 {
+		sessionKey = createXorPad(seed)
+	}
+		
 	return data, objectJson
 }
 
