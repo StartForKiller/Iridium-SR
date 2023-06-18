@@ -140,7 +140,7 @@ func startSniffer() {
 		capTime := packet.Metadata().Timestamp
 		data := packet.ApplicationLayer().Payload()
 		udp := packet.TransportLayer().(*layers.UDP)
-		fromServer := udp.SrcPort == 23301 || udp.SrcPort == 23302
+		fromServer := udp.SrcPort == 23301 || udp.SrcPort == 23302 || upd.SrcPort == 22102
 
 		if len(data) <= 20 {
 			handleSpecialPacket(data, fromServer, capTime)
