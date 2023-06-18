@@ -110,7 +110,7 @@ func readKeys() {
 func startSniffer() {
 	defer captureHandler.Close()
 
-	err := captureHandler.SetBPFFilter("udp portrange 23301-23302")
+	err := captureHandler.SetBPFFilter("udp portrange 22102-23302")
 	if err != nil {
 		log.Println("Could not set the filter of capture")
 		return
